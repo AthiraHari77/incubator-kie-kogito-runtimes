@@ -41,7 +41,7 @@ public abstract class AbstractPMMLRestResource {
 
     public static String getJsonErrorMessage(Exception e) {
         String rawMessage = e.getMessage() != null ? e.getMessage() : "";
-        String sanitizedMessage = rawMessage.replaceAll("[\r\n]", "_");
+        String sanitizedMessage = rawMessage.replaceAll("\\R+", "_");
         String errorMessage = String.format("%s: %s",
                 e.getClass().getName(), sanitizedMessage);
 
